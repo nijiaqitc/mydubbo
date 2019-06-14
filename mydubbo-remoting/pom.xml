@@ -14,6 +14,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>mydubbo-remoting-api</module>
+        <module>mydubbo-remoting-netty4</module>
     </modules>
 
 
