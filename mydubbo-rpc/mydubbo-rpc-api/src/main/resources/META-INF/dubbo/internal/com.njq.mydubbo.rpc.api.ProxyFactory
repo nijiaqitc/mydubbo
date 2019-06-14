@@ -1,0 +1,1 @@
+javassist=com.njq.mydubbo.rpc.api.proxy.javassist.JavassistProxyFactory

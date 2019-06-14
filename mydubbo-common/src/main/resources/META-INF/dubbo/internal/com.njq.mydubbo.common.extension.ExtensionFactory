@@ -1,0 +1,2 @@
+adaptive=com.njq.mydubbo.common.extension.factory.AdaptiveExtensionFactory
+spi=com.njq.mydubbo.common.extension.factory.SpiExtensionFactory

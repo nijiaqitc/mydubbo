@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>mydubbo</artifactId>
+        <groupId>com.njq.mydubbo</groupId>
+        <version>${revision}</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.njq.mydubbo.config</groupId>
+    <artifactId>mydubbo-config</artifactId>
+    <packaging>pom</packaging>
+    <name>${project.artifactId}</name>
+    <properties>
+        <skip_maven_deploy>false</skip_maven_deploy>
+    </properties>
+    <modules>
+        <module>mydubbo-config-api</module>
+        <module>mydubbo-config-spring</module>
+    </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.njq.mydubbo.common</groupId>
+            <artifactId>mydubbo-common</artifactId>
+            <version>${revision}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.njq.mydubbo.cluster</groupId>
+            <artifactId>mydubbo-cluster</artifactId>
+            <version>${revision}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.njq.mydubbo.rpc</groupId>
+            <artifactId>mydubbo-rpc</artifactId>
+            <version>${revision}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.njq.mydubbo.configcenter.api</groupId>
+            <artifactId>mydubbo-configcenter-api</artifactId>
+            <version>${revision}</version>
+        </dependency>
+    </dependencies>
+
+</project>

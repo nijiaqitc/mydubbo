@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>mydubbo-config</artifactId>
+        <groupId>com.njq.mydubbo.config</groupId>
+        <version>${revision}</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.njq.mydubbo.config.api</groupId>
+    <artifactId>mydubbo-config-api</artifactId>
+    <packaging>jar</packaging>
+    <properties>
+        <skip_maven_deploy>false</skip_maven_deploy>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>com.njq.mydubbo.registry.api</groupId>
+            <artifactId>mydubbo-registry-api</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.njq.mydubbo.rpc.api</groupId>
+            <artifactId>mydubbo-rpc-api</artifactId>
+            <version>${revision}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.njq.mydubbo.rpc.dubbo</groupId>
+            <artifactId>mydubbo-rpc-dubbo</artifactId>
+            <version>${revision}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.njq.mydubbo.remoting.api</groupId>
+            <artifactId>mydubbo-remoting-api</artifactId>
+            <version>${revision}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.njq.mydubbo.monitor.api</groupId>
+            <artifactId>mydubbo-monitor-api</artifactId>
+            <version>${revision}</version>
+        </dependency>
+    </dependencies>
+
+
+
+
+</project>
