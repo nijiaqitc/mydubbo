@@ -14,28 +14,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.njq.mydubbo.remoting.api;
+package com.njq.mydubbo.registry.multicast;
 
 import com.njq.mydubbo.common.URL;
-import com.njq.mydubbo.common.extension.Adaptive;
-import com.njq.mydubbo.common.extension.SPI;
-import com.njq.mydubbo.remoting.api.transport.dispatcher.all.AllDispatcher;
+import com.njq.mydubbo.registry.api.Registry;
+import com.njq.mydubbo.registry.api.support.AbstractRegistryFactory;
 
 /**
- * ChannelHandlerWrapper (SPI, Singleton, ThreadSafe)
+ * MulticastRegistryLocator
  */
-@SPI(AllDispatcher.NAME)
-public interface Dispatcher {
+public class MulticastRegistryFactory extends AbstractRegistryFactory {
 
-    /**
-     * dispatch the message to threadpool.
-     *
-     * @param handler
-     * @param url
-     * @return channel handler
-     */
-    @Adaptive({Constants.DISPATCHER_KEY, "dispather", "channel.handler"})
-    // The last two parameters are reserved for compatibility with the old configuration
-    ChannelHandler dispatch(ChannelHandler handler, URL url);
+    @Override
+    public Registry createRegistry(URL url) {
+        return new MulticastRegistry(url);
+    }
 
 }

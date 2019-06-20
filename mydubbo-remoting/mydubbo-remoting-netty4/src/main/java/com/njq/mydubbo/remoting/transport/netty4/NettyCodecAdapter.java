@@ -25,9 +25,6 @@ import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.ByteToMessageDecoder;
 import io.netty.handler.codec.MessageToByteEncoder;
-import org.apache.dubbo.common.URL;
-import org.apache.dubbo.remoting.Codec2;
-import org.apache.dubbo.remoting.buffer.ChannelBuffer;
 
 import java.io.IOException;
 import java.util.List;
@@ -45,9 +42,9 @@ final public class NettyCodecAdapter {
 
     private final URL url;
 
-    private final ChannelHandler handler;
+    private final com.njq.mydubbo.remoting.api.ChannelHandler handler;
 
-    public NettyCodecAdapter(Codec2 codec, URL url, ChannelHandler handler) {
+    public NettyCodecAdapter(Codec2 codec, URL url, com.njq.mydubbo.remoting.api.ChannelHandler handler) {
         this.codec = codec;
         this.url = url;
         this.handler = handler;

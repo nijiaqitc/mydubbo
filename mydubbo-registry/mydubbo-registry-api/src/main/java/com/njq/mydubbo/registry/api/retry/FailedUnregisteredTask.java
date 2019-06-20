@@ -14,28 +14,27 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.njq.mydubbo.remoting.api;
+
+package com.njq.mydubbo.registry.api.retry;
 
 import com.njq.mydubbo.common.URL;
-import com.njq.mydubbo.common.extension.Adaptive;
-import com.njq.mydubbo.common.extension.SPI;
-import com.njq.mydubbo.remoting.api.transport.dispatcher.all.AllDispatcher;
+import com.njq.mydubbo.common.timer.Timeout;
+import com.njq.mydubbo.registry.api.support.FailbackRegistry;
 
 /**
- * ChannelHandlerWrapper (SPI, Singleton, ThreadSafe)
+ * FailedUnregisteredTask
  */
-@SPI(AllDispatcher.NAME)
-public interface Dispatcher {
+public final class FailedUnregisteredTask extends AbstractRetryTask {
 
-    /**
-     * dispatch the message to threadpool.
-     *
-     * @param handler
-     * @param url
-     * @return channel handler
-     */
-    @Adaptive({Constants.DISPATCHER_KEY, "dispather", "channel.handler"})
-    // The last two parameters are reserved for compatibility with the old configuration
-    ChannelHandler dispatch(ChannelHandler handler, URL url);
+    private static final String NAME = "retry unregister";
 
+    public FailedUnregisteredTask(URL url, FailbackRegistry registry) {
+        super(url, registry, NAME);
+    }
+
+    @Override
+    protected void doRetry(URL url, FailbackRegistry registry, Timeout timeout) {
+        registry.doUnregister(url);
+        registry.removeFailedUnregisteredTask(url);
+    }
 }

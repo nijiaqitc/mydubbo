@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.njq.mydubbo.remoting.api.store;
+package com.njq.mydubbo.common.store;
 
 import com.njq.mydubbo.common.extension.SPI;
 
@@ -26,6 +26,7 @@ public interface DataStore {
 
     /**
      * return a snapshot value of componentName
+     *
      */
     Map<String, Object> get(String componentName);
 

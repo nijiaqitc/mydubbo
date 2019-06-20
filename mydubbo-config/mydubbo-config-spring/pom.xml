@@ -19,6 +19,16 @@
             <version>${revision}</version>
         </dependency>
         <dependency>
+            <groupId>com.njq.mydubbo.registry.default</groupId>
+            <artifactId>mydubbo-registry-default</artifactId>
+            <version>${revision}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.njq.mydubbo.registry.multicast</groupId>
+            <artifactId>mydubbo-registry-multicast</artifactId>
+            <version>${revision}</version>
+        </dependency>
+        <dependency>
             <groupId>com.njq.mydubbo.config.api</groupId>
             <artifactId>mydubbo-config-api</artifactId>
             <version>${project.parent.version}</version>

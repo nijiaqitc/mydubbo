@@ -14,28 +14,23 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.njq.mydubbo.remoting.api;
-
-import com.njq.mydubbo.common.URL;
-import com.njq.mydubbo.common.extension.Adaptive;
-import com.njq.mydubbo.common.extension.SPI;
-import com.njq.mydubbo.remoting.api.transport.dispatcher.all.AllDispatcher;
+package com.njq.mydubbo.registry.api.support;
 
 /**
- * ChannelHandlerWrapper (SPI, Singleton, ThreadSafe)
+ * Wrapper Exception, it is used to indicate that {@link FailbackRegistry} skips Failback.
+ * <p>
+ * NOTE: Expect to find other more conventional ways of instruction.
+ *
+ * @see FailbackRegistry
  */
-@SPI(AllDispatcher.NAME)
-public interface Dispatcher {
+public class SkipFailbackWrapperException extends RuntimeException {
+    public SkipFailbackWrapperException(Throwable cause) {
+        super(cause);
+    }
 
-    /**
-     * dispatch the message to threadpool.
-     *
-     * @param handler
-     * @param url
-     * @return channel handler
-     */
-    @Adaptive({Constants.DISPATCHER_KEY, "dispather", "channel.handler"})
-    // The last two parameters are reserved for compatibility with the old configuration
-    ChannelHandler dispatch(ChannelHandler handler, URL url);
-
+    @Override
+    public synchronized Throwable fillInStackTrace() {
+        // do nothing
+        return null;
+    }
 }

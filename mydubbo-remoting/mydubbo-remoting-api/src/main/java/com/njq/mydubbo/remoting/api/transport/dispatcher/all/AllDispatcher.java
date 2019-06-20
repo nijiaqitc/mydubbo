@@ -14,28 +14,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.njq.mydubbo.remoting.api;
+package com.njq.mydubbo.remoting.api.transport.dispatcher.all;
 
 import com.njq.mydubbo.common.URL;
-import com.njq.mydubbo.common.extension.Adaptive;
-import com.njq.mydubbo.common.extension.SPI;
-import com.njq.mydubbo.remoting.api.transport.dispatcher.all.AllDispatcher;
+import com.njq.mydubbo.remoting.api.ChannelHandler;
+import com.njq.mydubbo.remoting.api.Dispatcher;
 
 /**
- * ChannelHandlerWrapper (SPI, Singleton, ThreadSafe)
+ * default thread pool configure
  */
-@SPI(AllDispatcher.NAME)
-public interface Dispatcher {
+public class AllDispatcher implements Dispatcher {
 
-    /**
-     * dispatch the message to threadpool.
-     *
-     * @param handler
-     * @param url
-     * @return channel handler
-     */
-    @Adaptive({Constants.DISPATCHER_KEY, "dispather", "channel.handler"})
-    // The last two parameters are reserved for compatibility with the old configuration
-    ChannelHandler dispatch(ChannelHandler handler, URL url);
+    public static final String NAME = "all";
+
+    @Override
+    public ChannelHandler dispatch(ChannelHandler handler, URL url) {
+        return new AllChannelHandler(handler, url);
+    }
 
 }

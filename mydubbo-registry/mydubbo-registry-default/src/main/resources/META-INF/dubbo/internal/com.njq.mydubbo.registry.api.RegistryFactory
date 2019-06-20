@@ -1,0 +1,1 @@
+dubbo=com.njq.mydubbo.registry.defaults.DubboRegistryFactory

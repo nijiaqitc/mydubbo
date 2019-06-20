@@ -1,0 +1,2 @@
+netty4=com.njq.mydubbo.remoting.transport.netty4.NettyTransporter
+netty=com.njq.mydubbo.remoting.transport.netty4.NettyTransporter

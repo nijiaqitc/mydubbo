@@ -23,5 +23,10 @@
             <artifactId>mydubbo-common</artifactId>
             <version>${revision}</version>
         </dependency>
+        <dependency>
+            <groupId>com.njq.mydubbo.remoting.netty4</groupId>
+            <artifactId>mydubbo-remoting-netty4</artifactId>
+            <version>${revision}</version>
+        </dependency>
     </dependencies>
 </project>
