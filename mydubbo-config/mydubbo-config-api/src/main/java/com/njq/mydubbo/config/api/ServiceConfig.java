@@ -316,6 +316,7 @@ public class ServiceConfig<T> extends AbstractServiceConfig {
         fig.setName("dubbo");
         fig.setId("dubbo");
         fig.setPrefix("dubbo.protocols.");
+        //todo 手动设置了protocol
         protocols.add(fig);
         for (ProtocolConfig protocolConfig : protocols) {
             String pathKey = URL.buildKey(getContextPath(protocolConfig).map(p -> p + "/" + path).orElse(path), group, version);
@@ -391,7 +392,7 @@ public class ServiceConfig<T> extends AbstractServiceConfig {
 
                         Invoker<?> invoker = PROXY_FACTORY.getInvoker(ref, (Class) interfaceClass, registryURL.addParameterAndEncoded("export", url.toFullString()));
                         DelegateProviderMetaDataInvoker wrapperInvoker = new DelegateProviderMetaDataInvoker(invoker, this);
-
+                        System.out.println("暴露协议"+url.getServiceName());
                         Exporter<?> exporter = protocol.export(wrapperInvoker);
                         exporters.add(exporter);
                     }

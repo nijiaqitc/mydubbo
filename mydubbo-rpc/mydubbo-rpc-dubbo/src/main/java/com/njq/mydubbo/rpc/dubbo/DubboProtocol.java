@@ -310,6 +310,7 @@ public class DubboProtocol extends AbstractProtocol {
     }
 
     private void openServer(URL url) {
+        System.out.println("打开服务"+url.getPath());
         // find server.
         String key = url.getAddress();
         //client can export a service which's only for server to invoke
@@ -320,6 +321,7 @@ public class DubboProtocol extends AbstractProtocol {
                 synchronized (this) {
                     server = serverMap.get(key);
                     if (server == null) {
+                        System.out.println("存储key"+key);
                         serverMap.put(key, createServer(url));
                     }
                 }

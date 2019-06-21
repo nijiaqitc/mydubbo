@@ -112,7 +112,6 @@ public class ExtensionLoader<T> {
         if(EXTENSION_LOADERS.size() == 0){
             System.out.println();
         }
-        System.out.println("容器长度："+EXTENSION_LOADERS.size());
         if (type == null) {
             throw new IllegalArgumentException("Extension type == null");
         }
@@ -470,9 +469,6 @@ public class ExtensionLoader<T> {
     @SuppressWarnings("unchecked")
     public T getAdaptiveExtension() {
         Object instance = cachedAdaptiveInstance.get();
-
-
-        System.out.println(cachedAdaptiveInstance.get());
         if (instance == null) {
             if (createAdaptiveInstanceError == null) {
                 synchronized (cachedAdaptiveInstance) {

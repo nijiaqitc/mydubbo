@@ -213,10 +213,12 @@ public abstract class AbstractInterfaceConfig extends AbstractMethodConfig {
         fig.setAddress("multicast://224.5.6.7:1234");
         fig.setPrefix("dubbo.registries.");
         fig.setId("com.njq.mydubbo.config.api.RegistryConfig");
+        //todo 手动设置了注册中心
         registries.add(fig);
         application = new ApplicationConfig();
         application.setPrefix("dubbo.application");
         application.setName("demo-provider");
+        //todo 手动设置了当前application的名称
         application.setId("abcc");
 
         if (CollectionUtils.isNotEmpty(registries)) {

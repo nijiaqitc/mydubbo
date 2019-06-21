@@ -24,6 +24,8 @@ public class ServiceBean<T> extends ServiceConfig<T> implements InitializingBean
     @Override
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
         export();
+
+        System.out.println("ssssssssssssssss-----:"+beanName);
     }
 
     @Override
@@ -33,21 +35,21 @@ public class ServiceBean<T> extends ServiceConfig<T> implements InitializingBean
 
     @Override
     public void destroy() throws Exception {
-
+        System.out.println("执行destroy");
     }
 
     @Override
     public void afterPropertiesSet() throws Exception {
-
+        System.out.println("执行afterPropertiesSet");
     }
 
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-
+        System.out.println("执行setApplicationContext");
     }
 
     @Override
     public void setApplicationEventPublisher(ApplicationEventPublisher applicationEventPublisher) {
-
+        System.out.println("执行setApplicationEventPublisher");
     }
 }

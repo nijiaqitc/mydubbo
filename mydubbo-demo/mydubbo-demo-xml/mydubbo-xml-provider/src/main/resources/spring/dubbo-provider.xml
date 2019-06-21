@@ -27,6 +27,9 @@
     <bean id="demoService" class="com.njq.mydubbo.demo.xml.provider.DemoServiceImpl"/>
 
     <!-- declare the service interface to be exported -->
-    <dubbo:service  id="abc" interface="com.njq.mydubbo.demo.inface.DemoService" ref="demoService"/>
+    <dubbo:service id="abc" interface="com.njq.mydubbo.demo.inface.DemoService" ref="demoService"/>
+
+    <bean id="dtftService" class="com.njq.mydubbo.demo.xml.provider.DtftServiceImpl"/>
+    <dubbo:service id="def" interface="com.njq.mydubbo.demo.inface.DtftService" ref="dtftService"/>
 
 </beans>
